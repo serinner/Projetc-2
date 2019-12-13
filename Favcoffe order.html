@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Interactive Graphics</title>
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 500px;
+      }
+	h1 {
+		color:pink;
+		Text-align : center;
+		Font : Oswald }
+	h2 {
+		color: tan;
+		Text-align : center;
+		Font : Oswald }
+	h3 {
+		color: tan;
+		Text-align : center;
+		Font : Oswald }
+
+    </style>
+  </head>
+  <body>
+<h1>Favorite Coffee Order</h1>
+<h2> By: Sara Rinner </h2>
+<h3> I love mixing up my coffee order! So for this project I am showing my favorite coffee order to my least favorite. </h3>
+      <div id="chartdiv"></div>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+let chart = am4core.create("chartdiv", am4charts.SlicedChart);
+chart.data = [{
+  "name": "Hazelnut Latte",
+  "value": 600
+}, {
+  "name": "Vanilla Latte",
+  "value": 300
+}, {
+  "name": "Iced Coffee",
+  "value": 200
+}, {
+  "name": "Black Coffee",
+  "value": 180
+}, {
+  "name": "Chi Tea Latte",
+  "value": 50
+}, {
+  "name": "Pumpkin Spice Latte",
+  "value": 20
+}, {
+  "name": "Carmel Macchiato",
+  "value": 10
+}];
+
+var series = chart.series.push(new am4charts.PictorialStackedSeries());
+series.dataFields.value = "value";
+series.dataFields.category = "name";
+series.alignLabels = true;
+series.maskSprite.path = "M1.035 9l3.49 17.478C4.525 27.854 5.643 29 7.019 29h11.962c1.376 0 2.493-1.146 2.493-2.522L24.965 9H1.035zM23.524 3H21v-.176A2.824 2.824 0 0018.176 0H7.824A2.824 2.824 0 005 2.824V3H2.476C.946 3 0 3.939 0 5.468V7h26V5.468C26 3.939 25.053 3 23.524 3z";
+
+}); // end am4core.ready()
+</script>
+
+
+  </body>
+</html>
